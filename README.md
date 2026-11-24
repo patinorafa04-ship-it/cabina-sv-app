@@ -36,6 +36,7 @@ Hecha en El Salvador 🇸🇻, con un buscador que funciona **sin internet**: m�
 - **Dictado por voz** del destino, también sin internet.
 - **Mis lugares**: mantén presionado el mapa para guardar Casa, Trabajo o favoritos.
 - Sin internet, la ruta se puede abrir en Organic Maps.
+- 🔜 **Próximamente: rutas sin internet.** La app calculará la ruta y te guiará por voz sin datos móviles. Se descargan una sola vez, igual que los países.
 
 ### 🎵 Música y radio
 - Tu música del teléfono por **carpetas**, canciones, artistas, álbumes y **playlists**.
@@ -63,7 +64,7 @@ Hecha en El Salvador 🇸🇻, con un buscador que funciona **sin internet**: m�
 | **Precio** | Gratis, sin anuncios |
 | **Cuenta** | No necesita cuenta |
 | **Funciona sin internet** | Búsqueda de lugares, dictado por voz, música del teléfono |
-| **Necesita internet** | Mapa y rutas, radio, descarga de países |
+| **Necesita internet** | Mapa y rutas (rutas sin internet: próximamente), radio, descarga de países |
 | **Mapa** | Mapbox (requiere un token gratuito personal; la app explica cómo obtenerlo) |
 | **Datos de lugares** | © colaboradores de OpenStreetMap (ODbL) |
 | **Desarrollador** | Rafael Aguilar · El Salvador |
@@ -89,7 +90,7 @@ Todo se queda en tu teléfono. Detalles en la [política de privacidad](https://
 El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en [account.mapbox.com](https://account.mapbox.com/access-tokens) y se pega en la app.
 
 **¿Funciona sin datos móviles?**
-Sí: puedes buscar lugares, dictar el destino y escuchar tu música. Para ver el mapa y calcular rutas necesitas internet (o abrir la ruta en Organic Maps).
+Sí: puedes buscar lugares, dictar el destino y escuchar tu música. Por ahora, para calcular rutas necesitas internet (o abrir la ruta en Organic Maps). Pronto las rutas también funcionarán sin internet, descargándolas una sola vez como los países.
 
 **¿Dónde la descargo?**
 Pronto estará en Google Play. Este repositorio no publica instaladores.
