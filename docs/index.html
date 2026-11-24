@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabina SV · Tu carro, tu cabina</title>
+<meta name="description" content="Cabina SV convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio y llamadas. Hecho en El Salvador.">
+<meta property="og:title" content="Cabina SV · Tu carro, tu cabina">
+<meta property="og:description" content="Navegación, música, radio y llamadas en una sola pantalla. Busca lugares sin internet. Hecho en El Salvador.">
+<meta property="og:image" content="https://patinorafa04-ship-it.github.io/cabina-sv-app/imagenes/portada.png">
+<link rel="icon" href="imagenes/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fondo: #0D1015; --fondo2: #121722; --tarjeta: #161A21; --borde: rgba(255,255,255,.08);
+    --texto: #E8ECF1; --gris: #9AA4B2; --acento: #3DD6C3; --azul: #0F47AF; --azul-claro: #3B7DE8;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-tema="oscuro"]) {
+      --fondo: #F4F6F9; --fondo2: #E9EEF4; --tarjeta: #FFFFFF; --borde: rgba(20,24,31,.08);
+      --texto: #14181F; --gris: #586272; --acento: #1F8F82;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fondo); color: var(--texto); font: 17px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--acento); }
+  .contenedor { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  .franja { height: 8px; background: linear-gradient(to bottom, var(--azul) 0 33.3%, #fff 33.3% 66.6%, var(--azul) 66.6%); }
+
+  /* Barra */
+  header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--fondo) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borde); }
+  .barra { display: flex; align-items: center; gap: 12px; height: 64px; }
+  .barra img { width: 36px; height: 36px; border-radius: 10px; }
+  .barra b { font-family: "Space Grotesk", sans-serif; font-size: 20px; }
+  .barra nav { margin-left: auto; display: flex; gap: 20px; font-size: 15px; }
+  .barra nav a { color: var(--gris); text-decoration: none; }
+  .barra nav a:hover { color: var(--texto); }
+  @media (max-width: 640px) { .barra nav { display: none; } }
+
+  /* Portada */
+  .heroe { padding: 56px 0 40px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  @media (max-width: 860px) { .heroe { grid-template-columns: 1fr; padding-top: 36px; } }
+  h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(44px, 8vw, 76px); line-height: 1; letter-spacing: -2px; margin: 0; }
+  h1 .sv { background: linear-gradient(90deg, var(--azul-claro), #fff 55%, var(--azul-claro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  @media (prefers-color-scheme: light) { :root:not([data-tema="oscuro"]) h1 .sv { background: linear-gradient(90deg, var(--azul), var(--azul-claro)); -webkit-background-clip: text; background-clip: text; } }
+  .lema { font-size: clamp(20px, 3vw, 26px); margin: 16px 0 8px; font-weight: 500; }
+  .sub { color: var(--gris); margin: 0 0 28px; }
+  .botones { display: flex; gap: 12px; flex-wrap: wrap; }
+  .boton { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+  .boton.principal { background: var(--acento); color: #0D1015; }
+  .boton.secundario { border: 1px solid var(--borde); color: var(--texto); background: var(--tarjeta); }
+  .pronto { font-size: 13px; color: var(--gris); margin-top: 10px; }
+  .heroe img.portada { width: 100%; border-radius: 22px; border: 1px solid var(--borde); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+
+  section { padding: 48px 0; }
+  h2 { font-family: "Space Grotesk", sans-serif; font-size: clamp(28px, 4vw, 38px); margin: 0 0 8px; letter-spacing: -.5px; }
+  .intro { color: var(--gris); margin: 0 0 28px; max-width: 640px; }
+
+  /* Capturas */
+  .capturas { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  figure { margin: 0; background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 18px; overflow: hidden; }
+  figure .marco { aspect-ratio: 2000 / 907; background: var(--fondo2); display: grid; place-items: center; color: var(--gris); font-size: 14px; }
+  figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  figcaption { padding: 12px 16px; font-size: 15px; }
+  figcaption b { display: block; }
+  figcaption span { color: var(--gris); font-size: 14px; }
+
+  /* Funciones */
+  .grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
+  .grupo { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 18px; padding: 22px; }
+  .grupo h3 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 10px; align-items: center; }
+  .grupo ul { margin: 0; padding-left: 18px; color: var(--gris); }
+  .grupo li { margin: 6px 0; }
+  .grupo li b { color: var(--texto); font-weight: 600; }
+
+  /* Sin internet */
+  .destacado { background: linear-gradient(135deg, color-mix(in srgb, var(--acento) 18%, var(--tarjeta)), var(--tarjeta)); border: 1px solid var(--borde); border-radius: 22px; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+  @media (max-width: 760px) { .destacado { grid-template-columns: 1fr; } }
+  .paises { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .pais { background: var(--fondo2); border-radius: 12px; padding: 10px 12px; font-size: 15px; }
+  .pais small { display: block; color: var(--gris); }
+
+  /* Ficha */
+  .ficha { width: 100%; border-collapse: collapse; background: var(--tarjeta); border-radius: 18px; overflow: hidden; border: 1px solid var(--borde); }
+  .ficha th, .ficha td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--borde); vertical-align: top; font-size: 15px; }
+  .ficha th { width: 34%; color: var(--gris); font-weight: 500; }
+  .ficha tr:last-child th, .ficha tr:last-child td { border-bottom: 0; }
+  .tabla { overflow-x: auto; border-radius: 18px; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .dos { grid-template-columns: 1fr; } }
+
+  /* Preguntas */
+  details { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--gris); margin: 10px 0 0; }
+
+  footer { border-top: 1px solid var(--borde); padding: 28px 0 40px; color: var(--gris); font-size: 14px; }
+  footer .contenedor { display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="franja"></div>
+<header>
+  <div class="contenedor barra">
+    <img src="imagenes/icono.png" alt="">
+    <b>Cabina SV</b>
+    <nav>
+      <a href="#capturas">Capturas</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#ficha">Ficha técnica</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor">
+  <div class="heroe">
+    <div>
+      <h1>Cabina <span class="sv">SV</span></h1>
+      <p class="lema">Tu carro, tu cabina.</p>
+      <p class="sub">Convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio y llamadas en una sola pantalla, con botones grandes para verse de un vistazo. Busca lugares aunque no tengas internet.</p>
+      <div class="botones">
+        <a class="boton principal" href="https://play.google.com/store/apps/details?id=com.modocarro.app">▶ Google Play</a>
+        <a class="boton secundario" href="#capturas">Ver cómo funciona</a>
+      </div>
+      <p class="pronto">Próximamente en Google Play · Gratis y sin anuncios · Hecho en El Salvador</p>
+    </div>
+    <img class="portada" src="imagenes/portada.png" alt="Portada de Cabina SV con un volante azul">
+  </div>
+
+  <section id="capturas">
+    <h2>Así funciona</h2>
+    <p class="intro">Todo en horizontal, pensado para el soporte del carro.</p>
+    <div class="capturas">
+      <figure><div class="marco"><img src="capturas/01-inicio.jpg" alt="Pantalla de inicio" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Inicio</b><span>Hora, radio, mapa, música y velocidad de un vistazo.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/02-navegacion.jpg" alt="Navegación" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Navegación</b><span>Guía por voz, tiempo de llegada y límite de velocidad.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/03-musica.jpg" alt="Música" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Música</b><span>Por carpetas, artistas, álbumes y playlists.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/04-paises-sin-internet.jpg" alt="Países para buscar sin internet" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Buscar sin internet</b><span>El Salvador incluido y países de Centroamérica para descargar.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/05-radio.jpg" alt="Radio" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Radio</b><span>Miles de emisoras por internet y tus favoritas.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/06-ajustes.jpg" alt="Ajustes" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Ajustes</b><span>Tema claro u oscuro, colores, gadgets y más.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="funciones">
+    <h2>Todo lo que trae</h2>
+    <p class="intro">Lo que necesitas al manejar, sin cambiar de app.</p>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>🧭 Navegación</h3>
+        <ul>
+          <li><b>Guía por voz</b> y varias rutas para elegir</li>
+          <li><b>Límite de velocidad</b> de la calle</li>
+          <li>Mapa de <b>día o de noche</b> según la hora</li>
+          <li><b>Dictado por voz</b>, también sin internet</li>
+          <li><b>Mis lugares</b>: Casa, Trabajo y favoritos</li>
+          <li>Plan B sin internet con <b>Organic Maps</b></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>🎵 Música y radio</h3>
+        <ul>
+          <li>Tu música por <b>carpetas</b> y <b>playlists</b></li>
+          <li>Recuerda <b>dónde te quedaste</b></li>
+          <li><b>Radio por internet</b> con miles de emisoras</li>
+          <li>Controla <b>Spotify y YouTube Music</b></li>
+          <li>Desliza la carátula para <b>cambiar de canción</b></li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>📱 Al volante</h3>
+        <ul>
+          <li><b>Inicio personalizable</b> con gadgets</li>
+          <li><b>Notificaciones</b> que se cierran solas</li>
+          <li><b>Llamadas</b> a favoritos con un toque</li>
+          <li>Se <b>abre sola</b> al conectar el carro</li>
+          <li>Tema <b>claro, oscuro o automático</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="destacado">
+      <div>
+        <h2>Busca sin internet</h2>
+        <p class="sub" style="margin:0">El Salvador viene incluido: <b style="color:var(--texto)">más de 41 mil lugares</b>, colonias, calles y aeropuertos. Descarga otros países gratis desde la app.</p>
+      </div>
+      <div class="paises">
+        <div class="pais">🇸🇻 El Salvador<small>Incluido</small></div>
+        <div class="pais">🇬🇹 Guatemala<small>52 mil lugares</small></div>
+        <div class="pais">🇭🇳 Honduras<small>34 mil lugares</small></div>
+        <div class="pais">🇳🇮 Nicaragua<small>39 mil lugares</small></div>
+        <div class="pais">🇨🇷 Costa Rica<small>108 mil lugares</small></div>
+        <div class="pais">🇵🇦 Panamá<small>35 mil lugares</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ficha">
+    <h2>Ficha técnica</h2>
+    <p class="intro">Lo que necesitas saber antes de instalarla.</p>
+    <div class="dos">
+      <div class="tabla"><table class="ficha">
+        <tr><th>Versión</th><td>1.0.0</td></tr>
+        <tr><th>Sistema</th><td>Android 8.0 o superior</td></tr>
+        <tr><th>Orientación</th><td>Horizontal</td></tr>
+        <tr><th>Tamaño</th><td>55 a 75 MB según el teléfono</td></tr>
+        <tr><th>Idioma</th><td>Español</td></tr>
+        <tr><th>Precio</th><td>Gratis, sin anuncios ni cuenta</td></tr>
+        <tr><th>Desarrollador</th><td>Rafael Aguilar · El Salvador</td></tr>
+      </table></div>
+      <div class="tabla"><table class="ficha">
+        <tr><th>Sin internet</th><td>Búsqueda de lugares, dictado por voz y tu música</td></tr>
+        <tr><th>Con internet</th><td>Mapa y rutas, radio y descarga de países</td></tr>
+        <tr><th>Mapa</th><td>Mapbox, con tu token gratuito personal</td></tr>
+        <tr><th>Datos de lugares</th><td>© colaboradores de OpenStreetMap</td></tr>
+        <tr><th>Permisos</th><td>Ubicación, música, micrófono, contactos, llamadas, notificaciones y Bluetooth. <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Para qué se usa cada uno</a></td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Por qué necesito un token de Mapbox?</summary>
+      <p>El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en account.mapbox.com y se pega en la app, que te guía paso a paso.</p></details>
+    <details><summary>¿Funciona sin datos móviles?</summary>
+      <p>Sí. Puedes buscar lugares, dictar el destino y escuchar tu música sin internet. Para ver el mapa y calcular rutas necesitas conexión, o puedes abrir la ruta en Organic Maps.</p></details>
+    <details><summary>¿Mis datos salen del teléfono?</summary>
+      <p>No hay cuentas ni publicidad. Tus contactos, música y notificaciones se quedan en el teléfono. Solo el mapa (Mapbox) recibe tu ubicación para mostrarte dónde estás y calcular rutas.</p></details>
+    <details><summary>¿Dónde la descargo?</summary>
+      <p>Muy pronto en Google Play.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <span>© 2026 Rafael Aguilar · Hecho en El Salvador</span>
+    <span><a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a> · Datos de lugares © OpenStreetMap</span>
+  </div>
+</footer>
+<div class="franja"></div>
+</body>
+</html>
