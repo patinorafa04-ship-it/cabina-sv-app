@@ -77,13 +77,13 @@ Hecha en El Salvador 🇸🇻. Calcula la ruta y te guía por voz **sin internet
 | Ubicación | Tu posición, velocidad, límite de la calle y la navegación |
 | Música y audio | Reproducir la música guardada en el teléfono |
 | Micrófono | Dictar el destino por voz |
-| Contactos | Mostrar tus favoritos para llamarlos con un toque |
+| Contactos | No se pide el permiso: eliges cada favorito en el selector de Android |
 | Llamadas | Llamar a un favorito con un toque |
 | Acceso a notificaciones | Controlar la música de otras apps y ver tus notificaciones en el inicio |
 | Bluetooth | Saber si estás conectado al carro y abrir la app al conectar |
 | Notificaciones | Controles de la música y el aviso de "tu carro se conectó" |
 
-Todo se queda en tu teléfono. Detalles en la [política de privacidad](https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html).
+Tus favoritos, música y notificaciones se quedan en tu teléfono; con internet, Mapbox recibe tu ubicación. Detalles en la [política de privacidad](https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html).
 
 ## Preguntas frecuentes
 
