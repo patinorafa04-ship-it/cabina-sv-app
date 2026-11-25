@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cabina SV · Tu carro, tu cabina</title>
-<meta name="description" content="Cabina SV convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio y llamadas. Hecho en El Salvador.">
-<meta property="og:title" content="Cabina SV · Tu carro, tu cabina">
-<meta property="og:description" content="Navegación, música, radio y llamadas en una sola pantalla. Busca lugares sin internet. Hecho en El Salvador.">
+<title>Cabina SV: Rutas sin internet</title>
+<meta name="description" content="Cabina SV convierte tu teléfono Android en el tablero de tu carro: rutas con guía por voz sin internet en El Salvador, música, radio y llamadas en una sola pantalla.">
+<meta property="og:title" content="Cabina SV: Rutas sin internet">
+<meta property="og:description" content="Tu carro, tu cabina. Rutas sin internet, música, radio y llamadas en un solo tablero. Hecho en El Salvador.">
 <meta property="og:image" content="https://patinorafa04-ship-it.github.io/cabina-sv-app/imagenes/portada.png">
 <link rel="icon" href="imagenes/icono.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
+    color-scheme: dark;
     --fondo: #0D1015; --fondo2: #121722; --tarjeta: #161A21; --borde: rgba(255,255,255,.08);
     --texto: #E8ECF1; --gris: #9AA4B2; --acento: #3DD6C3; --azul: #0F47AF; --azul-claro: #3B7DE8;
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-tema="oscuro"]) {
-      --fondo: #F4F6F9; --fondo2: #E9EEF4; --tarjeta: #FFFFFF; --borde: rgba(20,24,31,.08);
-      --texto: #14181F; --gris: #586272; --acento: #1F8F82;
-    }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -45,7 +40,27 @@
   @media (max-width: 860px) { .heroe { grid-template-columns: 1fr; padding-top: 36px; } }
   h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(44px, 8vw, 76px); line-height: 1; letter-spacing: -2px; margin: 0; }
   h1 .sv { background: linear-gradient(90deg, var(--azul-claro), #fff 55%, var(--azul-claro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  @media (prefers-color-scheme: light) { :root:not([data-tema="oscuro"]) h1 .sv { background: linear-gradient(90deg, var(--azul), var(--azul-claro)); -webkit-background-clip: text; background-clip: text; } }
+  h1 small { display: block; font-size: .42em; line-height: 1.15; letter-spacing: -.5px; color: var(--acento); margin-top: 14px; }
+  .pilares { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+  .pilares li { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+  .pilares li::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--acento); margin-right: 8px; }
+  .cifras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 860px) { .cifras { grid-template-columns: repeat(2, 1fr); } }
+  .cifra { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 18px; padding: 18px; }
+  .cifra b { display: block; font: 700 clamp(24px, 4vw, 34px)/1.1 "Space Grotesk", sans-serif; color: var(--acento); font-variant-numeric: tabular-nums; }
+  .cifra span { color: var(--gris); font-size: 14px; }
+  .nota { color: var(--gris); font-size: 14px; margin: 12px 0 0; }
+  .compara { min-width: 640px; }
+  .compara thead th { color: var(--texto); font-weight: 600; background: var(--fondo2); }
+  .compara tbody th { width: 22%; }
+  .compara td.nuestro { color: var(--texto); background: color-mix(in srgb, var(--acento) 9%, transparent); }
+  .compara td { color: var(--gris); }
+  .num { text-align: right !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  section { scroll-margin-top: 50px; }
+  @media (max-width: 480px) { .destacado { padding: 20px 14px; } .ficha.lugares th, .ficha.lugares td { padding: 10px 8px; font-size: 14px; } }
+  .lugares th { width: auto; color: var(--texto); }
+  .lugares .total th, .lugares .total td { color: var(--acento); font-weight: 600; }
+  .lugares small { display: block; color: var(--gris); font-weight: 400; }
   .lema { font-size: clamp(20px, 3vw, 26px); margin: 16px 0 8px; font-weight: 500; }
   .sub { color: var(--gris); margin: 0 0 28px; }
   .botones { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -78,6 +93,7 @@
   .grupo li b { color: var(--texto); font-weight: 600; }
 
   /* Sin internet */
+  .destacado > div { min-width: 0; }
   .destacado { background: linear-gradient(135deg, color-mix(in srgb, var(--acento) 18%, var(--tarjeta)), var(--tarjeta)); border: 1px solid var(--borde); border-radius: 22px; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
   @media (max-width: 760px) { .destacado { grid-template-columns: 1fr; } }
   .paises { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -110,6 +126,8 @@
     <b>Cabina SV</b>
     <nav>
       <a href="#capturas">Capturas</a>
+      <a href="#sin-internet">Sin internet</a>
+      <a href="#diferencia">Diferencias</a>
       <a href="#funciones">Funciones</a>
       <a href="#ficha">Ficha técnica</a>
       <a href="#preguntas">Preguntas</a>
@@ -120,24 +138,82 @@
 <main class="contenedor">
   <div class="heroe">
     <div>
-      <h1>Cabina <span class="sv">SV</span></h1>
+      <h1>Cabina <span class="sv">SV</span><small>Rutas sin internet</small></h1>
       <p class="lema">Tu carro, tu cabina.</p>
-      <p class="sub">Convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio y llamadas en una sola pantalla, con botones grandes para verse de un vistazo. Busca lugares aunque no tengas internet.</p>
+      <p class="sub">Convierte tu teléfono Android en el tablero de tu carro. Calcula la ruta y te guía por voz <b style="color:var(--texto)">aunque no tengas datos</b>, con todo El Salvador en un solo archivo, y reúne tu música, la radio y tus llamadas en una pantalla.</p>
+      <ul class="pilares"><li>Navegación</li><li>Sin internet</li><li>Música</li><li>Radio</li></ul>
       <div class="botones">
-        <a class="boton principal" href="https://play.google.com/store/apps/details?id=com.modocarro.app">▶ Google Play</a>
-        <a class="boton secundario" href="#capturas">Ver cómo funciona</a>
+        <a class="boton principal" href="#sin-internet">Ver qué hace sin internet</a>
+        <a class="boton secundario" href="#capturas">Ver la app</a>
       </div>
-      <p class="pronto">Próximamente en Google Play · Gratis y sin anuncios · Hecho en El Salvador</p>
+      <p class="pronto">Próximamente en Google Play · Gratis y sin anuncios · Hecho en El Salvador · App Android para manejar</p>
     </div>
     <img class="portada" src="imagenes/portada.png" alt="Portada de Cabina SV con un volante azul">
   </div>
+
+  <div class="cifras">
+    <div class="cifra"><b>12.6 MB</b><span>mapa de calles y rutas de todo El Salvador</span></div>
+    <div class="cifra"><b>41,151</b><span>lugares del país ya incluidos en la app</span></div>
+    <div class="cifra"><b>312,833</b><span>lugares para buscar en 6 países</span></div>
+    <div class="cifra"><b>0</b><span>anuncios y cuentas por crear</span></div>
+  </div>
+
+  <section id="sin-internet">
+    <h2>Se fue la señal, la ruta sigue</h2>
+    <p class="intro">Cuando te quedas sin internet, la app lo avisa por voz y pasa sola al mapa y las rutas guardadas en tu teléfono.</p>
+    <div class="grupos">
+      <div class="grupo"><h3>🛣️ Calcula la ruta</h3>
+        <ul><li>En <b>tu teléfono</b>, sin datos móviles</li><li><b>Recalcula en el momento</b> si te desvías</li><li>Guía por <b>voz en español</b>, y baja la música al hablar</li></ul></div>
+      <div class="grupo"><h3>🗺️ Mapa propio</h3>
+        <ul><li>Calles con <b>nombre</b> de todo El Salvador</li><li>De <b>día y de noche</b>, también en el inicio</li><li>La ruta que falta en color y <b>lo recorrido en gris</b></li></ul></div>
+      <div class="grupo"><h3>🔎 Busca y dicta</h3>
+        <ul><li>Lugares, colonias y calles <b>sin conexión</b></li><li><b>Dictado por voz</b> sin internet en teléfonos compatibles</li><li>Descargas <b>una vez y no vence</b></li></ul></div>
+    </div>
+  </section>
+
+  <section id="paises">
+    <div class="destacado">
+      <div>
+        <h2>Lo que pesa cada cosa</h2>
+        <p class="sub" style="margin:0">El directorio de El Salvador <b style="color:var(--texto)">viene dentro de la app</b>. Los demás países se descargan por separado, gratis, desde Ajustes.</p>
+        <p class="sub" style="margin:12px 0 0"><b style="color:var(--acento)">Rutas y mapa de El Salvador:</b> 12.6 MB de descarga, 27 MB ya instalado. En los demás países la app busca lugares sin internet; las rutas sin internet son solo de El Salvador.</p>
+        <p class="nota">Archivos publicados en <a href="https://github.com/patinorafa04-ship-it/cabina-sv-mapas">cabina-sv-mapas</a>. Datos © colaboradores de OpenStreetMap.</p>
+      </div>
+      <div class="tabla"><table class="ficha lugares">
+        <tr><th>🇸🇻 El Salvador<small>Incluido en la app</small></th><td class="num">41,151</td><td class="num">1.1 MB</td></tr>
+        <tr><th>🇬🇹 Guatemala</th><td class="num">52,978</td><td class="num">1.5 MB</td></tr>
+        <tr><th>🇭🇳 Honduras</th><td class="num">34,608</td><td class="num">0.9 MB</td></tr>
+        <tr><th>🇳🇮 Nicaragua</th><td class="num">39,552</td><td class="num">1.1 MB</td></tr>
+        <tr><th>🇨🇷 Costa Rica</th><td class="num">108,841</td><td class="num">2.9 MB</td></tr>
+        <tr><th>🇵🇦 Panamá</th><td class="num">35,703</td><td class="num">1.0 MB</td></tr>
+        <tr class="total"><th>Total de lugares</th><td class="num">312,833</td><td class="num"></td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="diferencia">
+    <h2>¿En qué se diferencia de Google Maps?</h2>
+    <p class="intro">Google Maps es excelente para el tráfico y tiene cobertura mundial. Cabina SV es otra cosa: un tablero completo para tu carro, pensado para El Salvador.</p>
+    <div class="tabla"><table class="ficha compara">
+      <thead><tr><th></th><th>Cabina SV</th><th>Google Maps</th></tr></thead>
+      <tbody>
+      <tr><th>Qué es</th><td class="nuestro">Tablero para el carro: mapa, música, radio, llamadas y notificaciones</td><td>Mapa y navegación</td></tr>
+      <tr><th>Preparar el uso sin internet</th><td class="nuestro">Un archivo con todo El Salvador, sin recortar zonas</td><td>Eliges y descargas las zonas que quieras</td></tr>
+      <tr><th>Vigencia</th><td class="nuestro">No vence</td><td>Vence y se actualiza cada cierto tiempo</td></tr>
+      <tr><th>Guía sin internet</th><td class="nuestro">Sí, en El Salvador</td><td>Sí, dentro de la zona descargada</td></tr>
+      <tr><th>Tráfico en vivo</th><td class="nuestro">Solo con internet, con datos de Mapbox</td><td>Solo con internet</td></tr>
+      <tr><th>Cobertura sin internet</th><td class="nuestro">Rutas en El Salvador y búsqueda en 6 países</td><td>Las zonas que descargues, donde Google lo permite</td></tr>
+      </tbody>
+    </table></div>
+    <p class="nota">Google Maps es una marca de Google LLC. Cabina SV no está afiliada a Google. Información de <a href="https://support.google.com/maps/answer/6291838?hl=es&co=GENIE.Platform%3DAndroid">la ayuda de Google Maps</a>, noviembre de 2026.</p>
+  </section>
 
   <section id="capturas">
     <h2>Así funciona</h2>
     <p class="intro">Todo en horizontal, pensado para el soporte del carro.</p>
     <div class="capturas">
-      <figure><div class="marco"><img src="capturas/01-inicio.jpg" alt="Pantalla de inicio" onerror="this.replaceWith('Captura próximamente')"></div>
-        <figcaption><b>Inicio</b><span>Hora, radio, mapa, música y velocidad de un vistazo.</span></figcaption></figure>
+      <figure><div class="marco"><img src="capturas/01-inicio.jpg" alt="Pantalla de inicio con el mapa sin internet de El Salvador" onerror="this.replaceWith('Captura próximamente')"></div>
+        <figcaption><b>Inicio sin internet</b><span>Tu tablero con el mapa propio: hora, radio, música y velocidad.</span></figcaption></figure>
       <figure><div class="marco"><img src="capturas/02-navegacion.jpg" alt="Navegación" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Navegación</b><span>Guía por voz, tiempo de llegada y límite de velocidad.</span></figcaption></figure>
       <figure><div class="marco"><img src="capturas/03-musica.jpg" alt="Música" onerror="this.replaceWith('Captura próximamente')"></div>
@@ -152,59 +228,27 @@
   </section>
 
   <section id="funciones">
-    <h2>Todo lo que trae</h2>
+    <h2>Todo en una pantalla</h2>
     <p class="intro">Lo que necesitas al manejar, sin cambiar de app.</p>
     <div class="grupos">
-      <div class="grupo">
-        <h3>🧭 Navegación</h3>
-        <ul>
-          <li><b>Guía por voz</b> y varias rutas para elegir</li>
-          <li><b>Límite de velocidad</b> de la calle</li>
-          <li>Mapa de <b>día o de noche</b> según la hora</li>
-          <li><b>Dictado por voz</b>, también sin internet</li>
-          <li><b>Mis lugares</b>: Casa, Trabajo y favoritos</li>
-          <li>Plan B sin internet con <b>Organic Maps</b></li>
-          <li>🔜 <b>Rutas sin internet</b> (próximamente)</li>
-        </ul>
-      </div>
-      <div class="grupo">
-        <h3>🎵 Música y radio</h3>
-        <ul>
-          <li>Tu música por <b>carpetas</b> y <b>playlists</b></li>
-          <li>Recuerda <b>dónde te quedaste</b></li>
-          <li><b>Radio por internet</b> con miles de emisoras</li>
-          <li>Controla <b>Spotify y YouTube Music</b></li>
-          <li>Desliza la carátula para <b>cambiar de canción</b></li>
-        </ul>
-      </div>
-      <div class="grupo">
-        <h3>📱 Al volante</h3>
-        <ul>
-          <li><b>Inicio personalizable</b> con gadgets</li>
-          <li><b>Notificaciones</b> que se cierran solas</li>
-          <li><b>Llamadas</b> a favoritos con un toque</li>
-          <li>Se <b>abre sola</b> al conectar el carro</li>
-          <li>Tema <b>claro, oscuro o automático</b></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="destacado">
-      <div>
-        <h2>Busca sin internet</h2>
-        <p class="sub" style="margin:0">El Salvador viene incluido: <b style="color:var(--texto)">más de 41 mil lugares</b>, colonias, calles y aeropuertos. Descarga otros países gratis desde la app.</p>
-        <p class="sub" style="margin:12px 0 0"><b style="color:var(--acento)">Próximamente:</b> rutas con guía por voz también sin internet. Se descargan una sola vez, igual que los países.</p>
-      </div>
-      <div class="paises">
-        <div class="pais">🇸🇻 El Salvador<small>Incluido</small></div>
-        <div class="pais">🇬🇹 Guatemala<small>52 mil lugares</small></div>
-        <div class="pais">🇭🇳 Honduras<small>34 mil lugares</small></div>
-        <div class="pais">🇳🇮 Nicaragua<small>39 mil lugares</small></div>
-        <div class="pais">🇨🇷 Costa Rica<small>108 mil lugares</small></div>
-        <div class="pais">🇵🇦 Panamá<small>35 mil lugares</small></div>
-      </div>
+      <div class="grupo"><h3>🧩 Inicio personalizable</h3>
+        <ul><li><b>Mueve, oculta e intercambia</b> los gadgets</li><li>Logo de tu carro, radio, minimapa, música y llamadas</li><li>Hora, velocidad y avisos de un vistazo</li></ul></div>
+      <div class="grupo"><h3>🧭 Navegación</h3>
+        <ul><li><b>Guía por voz</b>, con y sin internet</li><li><b>Varias rutas</b> para elegir y <b>límite de velocidad</b> de la calle, con internet</li><li>Mapa de <b>día o de noche</b> según la hora</li></ul></div>
+      <div class="grupo"><h3>📍 Mis lugares</h3>
+        <ul><li><b>Mantén presionado</b> el mapa para guardar</li><li>Casa, Trabajo o Favorito</li><li>Edítalos o bórralos cuando quieras</li></ul></div>
+      <div class="grupo"><h3>🎵 Música local</h3>
+        <ul><li>Por <b>carpetas</b>, canciones, artistas, álbumes y <b>playlists</b></li><li>Recuerda la canción y <b>dónde te quedaste</b></li><li>Controla también <b>Spotify y YouTube Music</b></li></ul></div>
+      <div class="grupo"><h3>📻 Radio por internet</h3>
+        <ul><li><b>Miles de emisoras</b> de <a href="https://www.radio-browser.info">radio-browser.info</a></li><li>Tus favoritas y la última que escuchaste</li><li><b>Desliza</b> para cambiar de emisora</li></ul></div>
+      <div class="grupo"><h3>🔔 Notificaciones y llamadas</h3>
+        <ul><li>Panel que <b>se cierra solo</b></li><li>Llama a tus <b>favoritos</b> con un toque</li><li>Acceso a tus <b>llamadas recientes</b></li></ul></div>
+      <div class="grupo"><h3>🌗 Tema</h3>
+        <ul><li><b>Claro, oscuro o automático</b></li><li>Cambia con la hora, igual que el mapa</li><li>Tu <b>color de acento</b></li></ul></div>
+      <div class="grupo"><h3>🔵 Bluetooth del carro</h3>
+        <ul><li><b>Se abre sola</b> al conectar tu carro</li><li>Tú eliges qué Bluetooth es el de tu carro</li></ul></div>
+      <div class="grupo"><h3>👋 Tour de bienvenida</h3>
+        <ul><li>Resalta <b>cada parte</b> del inicio</li><li>Puedes saltarlo</li><li>Y verlo otra vez desde <b>Ajustes</b></li></ul></div>
     </div>
   </section>
 
@@ -222,11 +266,11 @@
         <tr><th>Desarrollador</th><td>Rafael Aguilar · El Salvador</td></tr>
       </table></div>
       <div class="tabla"><table class="ficha">
-        <tr><th>Sin internet</th><td>Búsqueda de lugares, dictado por voz y tu música</td></tr>
-        <tr><th>Con internet</th><td>Mapa y rutas, radio y descarga de países</td></tr>
-        <tr><th>Próximamente</th><td>Rutas y guía por voz sin internet</td></tr>
+        <tr><th>Sin internet</th><td>Mapa de calles, rutas y guía por voz (El Salvador), búsqueda de lugares, dictado en teléfonos compatibles y tu música</td></tr>
+        <tr><th>Con internet</th><td>Mapa detallado de Mapbox, varias rutas, tráfico, límite de velocidad, radio y descargas</td></tr>
+        <tr><th>Rutas sin internet</th><td>El Salvador: 12.6 MB de descarga, 27 MB instalado</td></tr>
         <tr><th>Mapa</th><td>Mapbox, con tu token gratuito personal</td></tr>
-        <tr><th>Datos de lugares</th><td>© colaboradores de OpenStreetMap</td></tr>
+        <tr><th>Lugares y calles</th><td>© colaboradores de OpenStreetMap</td></tr>
         <tr><th>Permisos</th><td>Ubicación, música, micrófono, contactos, llamadas, notificaciones y Bluetooth. <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Para qué se usa cada uno</a></td></tr>
       </table></div>
     </div>
@@ -235,11 +279,13 @@
   <section id="preguntas">
     <h2>Preguntas frecuentes</h2>
     <details><summary>¿Por qué necesito un token de Mapbox?</summary>
-      <p>El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en account.mapbox.com y se pega en la app, que te guía paso a paso.</p></details>
+      <p>El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en account.mapbox.com y se pega en la app, que te guía paso a paso. También hace falta tenerlo puesto para ver el mapa sin internet, aunque en ese momento no se gasta.</p></details>
     <details><summary>¿Funciona sin datos móviles?</summary>
-      <p>Sí. Puedes buscar lugares, dictar el destino y escuchar tu música sin internet. Por ahora, para calcular rutas necesitas conexión o abrir la ruta en Organic Maps. Pronto las rutas también funcionarán sin internet: se descargan una sola vez, igual que los países.</p></details>
+      <p>Sí. Descarga una vez “Rutas sin internet” en Ajustes &gt; Navegación y la app mostrará su mapa, calculará la ruta y te guiará por voz sin datos, en El Salvador. También puedes buscar lugares y escuchar tu música.</p></details>
     <details><summary>¿Mis datos salen del teléfono?</summary>
-      <p>No hay cuentas ni publicidad. Tus contactos, música y notificaciones se quedan en el teléfono. Solo el mapa (Mapbox) recibe tu ubicación para mostrarte dónde estás y calcular rutas.</p></details>
+      <p>No hay cuentas ni publicidad. Tus contactos, música y notificaciones se quedan en el teléfono. Con internet, Mapbox recibe tu ubicación para mostrarte el mapa y calcular rutas. Sin internet, la ruta se calcula en tu teléfono.</p></details>
+    <details><summary>¿El mapa sin internet es igual al de siempre?</summary>
+      <p>Es más sencillo: muestra calles con su nombre, ciudades, pueblos y colonias. No trae parques, ríos, edificios ni negocios, pero la búsqueda sí encuentra lugares.</p></details>
     <details><summary>¿Dónde la descargo?</summary>
       <p>Muy pronto en Google Play.</p></details>
   </section>
@@ -248,7 +294,7 @@
 <footer>
   <div class="contenedor">
     <span>© 2026 Rafael Aguilar · Hecho en El Salvador</span>
-    <span><a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a> · Datos de lugares © OpenStreetMap</span>
+    <span><a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a> · Lugares y calles © OpenStreetMap</span>
   </div>
 </footer>
 <div class="franja"></div>

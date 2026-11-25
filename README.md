@@ -3,24 +3,24 @@
 </p>
 
 <p align="center">
-  <a href="https://play.google.com/store/apps/details?id=com.modocarro.app"><b>▶ Próximamente en Google Play</b></a>
+  <b>Próximamente en Google Play</b>
   &nbsp;·&nbsp;
   <a href="https://patinorafa04-ship-it.github.io/cabina-sv-app/">Página web</a>
   &nbsp;·&nbsp;
   <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a>
 </p>
 
-# Cabina SV
+# Cabina SV: Rutas sin internet
 
 **Tu carro, tu cabina.** Cabina SV convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio, llamadas y notificaciones en una sola pantalla horizontal, con botones grandes y pensada para verse de un vistazo mientras manejas.
 
-Hecha en El Salvador 🇸🇻, con un buscador que funciona **sin internet**: más de 41 mil lugares, colonias y calles del país incluidos, y países de Centroamérica para descargar.
+Hecha en El Salvador 🇸🇻. Calcula la ruta y te guía por voz **sin internet** en todo el país, con un solo archivo de 12.6 MB que se descarga una vez y no vence. Además busca entre **312,833 lugares de 6 países** sin conexión.
 
 ## Capturas
 
-| Inicio | Navegación | Música |
+| Inicio sin internet | Navegación | Música |
 |---|---|---|
-| ![Pantalla de inicio](docs/capturas/01-inicio.jpg) | ![Navegación con guía](docs/capturas/02-navegacion.jpg) | ![Música por carpetas](docs/capturas/03-musica.jpg) |
+| ![Pantalla de inicio con el mapa sin internet de El Salvador](docs/capturas/01-inicio.jpg) | ![Navegación con guía](docs/capturas/02-navegacion.jpg) | ![Música por carpetas](docs/capturas/03-musica.jpg) |
 
 | Buscar sin internet | Radio | Ajustes |
 |---|---|---|
@@ -29,20 +29,20 @@ Hecha en El Salvador 🇸🇻, con un buscador que funciona **sin internet**: m�
 ## Qué hace
 
 ### 🧭 Navegación
-- Rutas con **guía por voz** y varias opciones de camino.
-- **Límite de velocidad** de la calle junto a tu velocidad (se pone en rojo si te pasas).
+- **Rutas sin internet en El Salvador**: la app calcula el camino en tu teléfono, te guía por voz y recalcula en el momento si te desvías.
+- **Mapa propio sin internet**: calles con su nombre, ciudades, pueblos y colonias, de día y de noche.
+- Con internet: **varias rutas** para elegir y **límite de velocidad** de la calle (se pone en rojo si te pasas).
 - Mapa de **día o de noche** según la hora.
 - **Búsqueda sin internet**: El Salvador incluido; Guatemala, Honduras, Nicaragua, Costa Rica y Panamá para descargar.
-- **Dictado por voz** del destino, también sin internet.
+- **Dictado por voz** del destino, también sin internet en teléfonos compatibles.
 - **Mis lugares**: mantén presionado el mapa para guardar Casa, Trabajo o favoritos.
 - Sin internet, la ruta se puede abrir en Organic Maps.
-- 🔜 **Próximamente: rutas sin internet.** La app calculará la ruta y te guiará por voz sin datos móviles. Se descargan una sola vez, igual que los países.
 
 ### 🎵 Música y radio
 - Tu música del teléfono por **carpetas**, canciones, artistas, álbumes y **playlists**.
 - Recuerda la canción y el **segundo exacto** donde quedaste.
 - **Radio por internet** con miles de emisoras y tus favoritas.
-- Controla **Spotify, YouTube Music** y otras apps desde el inicio; desliza la carátula para cambiar de canción.
+- Controla **Spotify, YouTube Music** y otras apps desde el inicio; desliza la tarjeta para cambiar de canción o de emisora.
 
 ### 📱 Al volante
 - **Inicio personalizable**: mueve, oculta e intercambia gadgets.
@@ -63,10 +63,11 @@ Hecha en El Salvador 🇸🇻, con un buscador que funciona **sin internet**: m�
 | **Idioma** | Español |
 | **Precio** | Gratis, sin anuncios |
 | **Cuenta** | No necesita cuenta |
-| **Funciona sin internet** | Búsqueda de lugares, dictado por voz, música del teléfono |
-| **Necesita internet** | Mapa y rutas (rutas sin internet: próximamente), radio, descarga de países |
+| **Funciona sin internet** | Mapa de calles, rutas y guía por voz (El Salvador), búsqueda de lugares, dictado en teléfonos compatibles, música del teléfono |
+| **Necesita internet** | Mapa detallado de Mapbox, varias rutas, tráfico, límite de velocidad, radio y descargas |
+| **Rutas sin internet** | El Salvador: 12.6 MB de descarga, 27 MB instalado |
 | **Mapa** | Mapbox (requiere un token gratuito personal; la app explica cómo obtenerlo) |
-| **Datos de lugares** | © colaboradores de OpenStreetMap (ODbL) |
+| **Lugares y calles** | © colaboradores de OpenStreetMap (ODbL) |
 | **Desarrollador** | Rafael Aguilar · El Salvador |
 
 ### Permisos
@@ -87,10 +88,10 @@ Todo se queda en tu teléfono. Detalles en la [política de privacidad](https://
 ## Preguntas frecuentes
 
 **¿Por qué necesito un token de Mapbox?**
-El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en [account.mapbox.com](https://account.mapbox.com/access-tokens) y se pega en la app.
+El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gasta la cuota de otro. Se crea en minutos en [account.mapbox.com](https://account.mapbox.com/access-tokens) y se pega en la app. También hace falta tenerlo puesto para ver el mapa sin internet, aunque en ese momento no se gasta.
 
 **¿Funciona sin datos móviles?**
-Sí: puedes buscar lugares, dictar el destino y escuchar tu música. Por ahora, para calcular rutas necesitas internet (o abrir la ruta en Organic Maps). Pronto las rutas también funcionarán sin internet, descargándolas una sola vez como los países.
+Sí. Descarga una vez "Rutas sin internet" en Ajustes > Navegación y la app mostrará su mapa, calculará la ruta y te guiará por voz sin datos, en El Salvador. También puedes buscar lugares y escuchar tu música. Ese mapa es más sencillo: no trae parques, ríos, edificios ni negocios.
 
 **¿Dónde la descargo?**
 Pronto estará en Google Play. Este repositorio no publica instaladores.
