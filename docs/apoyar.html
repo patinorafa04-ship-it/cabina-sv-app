@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apoya a Cabina SV</title>
+<meta name="description" content="Cabina SV es gratis para la comunidad. Si te sirve, puedes apoyar el proyecto con un aporte voluntario.">
+<meta property="og:title" content="Apoya a Cabina SV">
+<meta property="og:image" content="https://patinorafa04-ship-it.github.io/cabina-sv-app/imagenes/portada.png">
+<link rel="icon" href="imagenes/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; --fondo: #0D1015; --fondo2: #121722; --tarjeta: #161A21; --borde: rgba(255,255,255,.1); --texto: #E8ECF1; --gris: #9AA4B2; --acento: #3DD6C3; --azul: #0F47AF; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; background: var(--fondo); color: var(--texto); font: 17px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--acento); }
+  a:focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; }
+  .franja { height: 8px; flex: none; background: linear-gradient(to bottom, var(--azul) 0 33.3%, #fff 33.3% 66.6%, var(--azul) 66.6%); }
+  header { max-width: 960px; width: 100%; margin: 0 auto; padding: 12px 16px; }
+  header a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--texto); text-decoration: none; font: 700 20px "Space Grotesk", sans-serif; }
+  header img { width: 36px; height: 36px; border-radius: 10px; }
+  main { flex: 1; width: 100%; max-width: 960px; margin: 0 auto; padding: 12px 16px 40px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; }
+  .corazon { display: grid; place-items: center; width: min(100%, 300px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: radial-gradient(circle, rgba(61,214,195,.28), rgba(61,214,195,.05) 70%); }
+  .corazon svg { width: 52%; fill: var(--acento); animation: latido 1.4s ease-in-out infinite alternate; }
+  @keyframes latido { from { transform: scale(.94); } to { transform: scale(1.06); } }
+  @media (prefers-reduced-motion: reduce) { .corazon svg { animation: none; } }
+  h1 { font: 700 clamp(32px, 6vw, 52px)/1.08 "Space Grotesk", sans-serif; letter-spacing: -1px; margin: 0 0 14px; text-wrap: balance; }
+  p { margin: 0 0 14px; color: var(--gris); }
+  p b { color: var(--texto); }
+  .montos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 10px; }
+  .montos a { display: grid; place-items: center; min-height: 72px; border-radius: 16px; border: 1px solid var(--borde); background: var(--tarjeta); color: var(--texto); text-decoration: none; font: 700 26px "Space Grotesk", sans-serif; }
+  .montos a:hover { border-color: var(--acento); }
+  .principal { display: grid; place-items: center; min-height: 64px; padding: 10px 18px; text-align: center; border-radius: 999px; background: var(--acento); color: #0D1015; font-weight: 600; font-size: 19px; text-decoration: none; }
+  .nota { font-size: 14px; margin: 14px 0 0; }
+  footer { max-width: 960px; width: 100%; margin: 0 auto; padding: 18px 16px 26px; color: var(--gris); font-size: 14px; border-top: 1px solid var(--borde); display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; }
+  footer a { display: inline-block; padding: 8px 0; }
+  @media (max-width: 700px) {
+    main { grid-template-columns: 1fr; gap: 22px; align-content: start; }
+    .corazon { width: 150px; }
+  }
+  @media (max-height: 460px) and (min-width: 560px) { main { grid-template-columns: .5fr 1.5fr; gap: 28px; } }
+</style>
+</head>
+<body>
+<div class="franja"></div>
+<header><a href="./"><img src="imagenes/icono.png" alt="" width="36" height="36">Cabina SV</a></header>
+<main>
+  <div class="corazon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+  <div>
+    <h1>Cabina SV es gratis para la comunidad</h1>
+    <p>La hice para quienes manejan en El Salvador: <b>sin anuncios y sin cobrar</b>. Si te sirve, tu aporte ayuda a que siga creciendo.</p>
+    <div class="montos">
+      <a href="https://paypal.me/Hans145Hz/3USD" rel="noopener">$3</a>
+      <a href="https://paypal.me/Hans145Hz/5USD" rel="noopener">$5</a>
+      <a href="https://paypal.me/Hans145Hz/10USD" rel="noopener">$10</a>
+    </div>
+    <a class="principal" href="https://paypal.me/Hans145Hz" rel="noopener">Elegir otro monto en PayPal</a>
+    <p class="nota">El aporte es voluntario y no desbloquea nada: todas las funciones son iguales para todos. El pago se hace en la página de PayPal, en el perfil @Hans145Hz de quien creó la app; Cabina SV no ve los datos de tu tarjeta.</p>
+  </div>
+</main>
+<footer><span>© 2026 Rafael Aguilar · Hecho en El Salvador</span><span><a href="./">Volver a Cabina SV</a></span></footer>
+</body>
+</html>
