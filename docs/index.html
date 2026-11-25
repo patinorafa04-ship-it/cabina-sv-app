@@ -33,7 +33,14 @@
   .barra nav { margin-left: auto; display: flex; gap: 20px; font-size: 15px; }
   .barra nav a { color: var(--gris); text-decoration: none; }
   .barra nav a:hover { color: var(--texto); }
-  @media (max-width: 640px) { .barra nav { display: none; } }
+  @media (max-width: 860px) {
+    .barra { flex-wrap: wrap; height: auto; padding-top: 12px; row-gap: 2px; }
+    .barra nav { margin: 0 -16px; padding: 0 16px; width: calc(100% + 32px); gap: 22px; overflow-x: auto; scrollbar-width: none; }
+    .barra nav::-webkit-scrollbar { display: none; }
+    .barra nav a { flex: none; padding: 10px 0 12px; min-height: 44px; }
+  }
+  /* Teléfono acostado: el menú no se queda pegado, para no quitar la poca altura que hay */
+  @media (max-height: 460px) { header { position: static; } }
 
   /* Portada */
   .heroe { padding: 56px 0 40px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
@@ -57,7 +64,22 @@
   .compara td { color: var(--gris); }
   .num { text-align: right !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
   section { scroll-margin-top: 50px; }
-  @media (max-width: 480px) { .destacado { padding: 20px 14px; } .ficha.lugares th, .ficha.lugares td { padding: 10px 8px; font-size: 14px; } }
+  @media (max-width: 860px) { section { scroll-margin-top: 84px; padding: 36px 0; } .lugares small { display: inline; } }
+  @media (max-width: 860px) { .heroe { gap: 28px; } }
+  /* Comparación: en celular cada fila es una tarjeta, sin tener que deslizar de lado */
+  @media (max-width: 760px) {
+    .compara { min-width: 0; }
+    .compara thead { display: none; }
+    .compara, .compara tbody, .compara tr, .compara tbody th, .compara td { display: block; width: 100%; }
+    .compara tr { border-bottom: 1px solid var(--borde); }
+    .compara tr:last-child { border-bottom: 0; }
+    .compara tbody th { color: var(--texto); font-weight: 600; border: 0; padding: 16px 18px 8px; }
+    .compara td { border: 0; padding: 8px 18px 12px; }
+    .compara td::before { content: attr(data-de); display: block; font-size: 13px; color: var(--gris); }
+    .compara td.nuestro::before { color: var(--acento); }
+  }
+  @media (max-width: 360px) { .cifras { gap: 8px; } .cifra { padding: 14px; } .ficha th, .ficha td { padding: 12px; } }
+  @media (max-width: 480px) { .destacado { padding: 20px 14px; } .ficha.lugares th, .ficha.lugares td { padding: 10px 6px; font-size: 14px; } }
   .lugares th { width: auto; color: var(--texto); }
   .lugares .total th, .lugares .total td { color: var(--acento); font-weight: 600; }
   .lugares small { display: block; color: var(--gris); font-weight: 400; }
@@ -68,14 +90,14 @@
   .boton.principal { background: var(--acento); color: #0D1015; }
   .boton.secundario { border: 1px solid var(--borde); color: var(--texto); background: var(--tarjeta); }
   .pronto { font-size: 13px; color: var(--gris); margin-top: 10px; }
-  .heroe img.portada { width: 100%; border-radius: 22px; border: 1px solid var(--borde); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+  .heroe img.portada { width: 100%; height: auto; border-radius: 22px; border: 1px solid var(--borde); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
 
   section { padding: 48px 0; }
   h2 { font-family: "Space Grotesk", sans-serif; font-size: clamp(28px, 4vw, 38px); margin: 0 0 8px; letter-spacing: -.5px; }
   .intro { color: var(--gris); margin: 0 0 28px; max-width: 640px; }
 
   /* Capturas */
-  .capturas { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .capturas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
   figure { margin: 0; background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 18px; overflow: hidden; }
   figure .marco { aspect-ratio: 2000 / 907; background: var(--fondo2); display: grid; place-items: center; color: var(--gris); font-size: 14px; }
   figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -85,7 +107,8 @@
 
   /* Funciones */
   .grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  @media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
+  @media (max-width: 960px) { .grupos { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .grupos { grid-template-columns: 1fr; } }
   .grupo { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 18px; padding: 22px; }
   .grupo h3 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 10px; align-items: center; }
   .grupo ul { margin: 0; padding-left: 18px; color: var(--gris); }
@@ -115,6 +138,7 @@
   details p { color: var(--gris); margin: 10px 0 0; }
 
   footer { border-top: 1px solid var(--borde); padding: 28px 0 40px; color: var(--gris); font-size: 14px; }
+  footer a { display: inline-block; padding: 8px 0; }
   footer .contenedor { display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
 </style>
 </head>
@@ -148,7 +172,7 @@
       </div>
       <p class="pronto">Próximamente en Google Play · Gratis y sin anuncios · Hecho en El Salvador · App Android para manejar</p>
     </div>
-    <img class="portada" src="imagenes/portada.png" alt="Portada de Cabina SV con un volante azul">
+    <img class="portada" width="1280" height="640" src="imagenes/portada.png" alt="Portada de Cabina SV con un volante azul">
   </div>
 
   <div class="cifras">
@@ -197,12 +221,12 @@
     <div class="tabla"><table class="ficha compara">
       <thead><tr><th></th><th>Cabina SV</th><th>Google Maps</th></tr></thead>
       <tbody>
-      <tr><th>Qué es</th><td class="nuestro">Tablero para el carro: mapa, música, radio, llamadas y notificaciones</td><td>Mapa y navegación</td></tr>
-      <tr><th>Preparar el uso sin internet</th><td class="nuestro">Un archivo con todo El Salvador, sin recortar zonas</td><td>Eliges y descargas las zonas que quieras</td></tr>
-      <tr><th>Vigencia</th><td class="nuestro">No vence</td><td>Vence y se actualiza cada cierto tiempo</td></tr>
-      <tr><th>Guía sin internet</th><td class="nuestro">Sí, en El Salvador</td><td>Sí, dentro de la zona descargada</td></tr>
-      <tr><th>Tráfico en vivo</th><td class="nuestro">Solo con internet, con datos de Mapbox</td><td>Solo con internet</td></tr>
-      <tr><th>Cobertura sin internet</th><td class="nuestro">Rutas en El Salvador y búsqueda en 6 países</td><td>Las zonas que descargues, donde Google lo permite</td></tr>
+      <tr><th>Qué es</th><td class="nuestro" data-de="Cabina SV">Tablero para el carro: mapa, música, radio, llamadas y notificaciones</td><td data-de="Google Maps">Mapa y navegación</td></tr>
+      <tr><th>Preparar el uso sin internet</th><td class="nuestro" data-de="Cabina SV">Un archivo con todo El Salvador, sin recortar zonas</td><td data-de="Google Maps">Eliges y descargas las zonas que quieras</td></tr>
+      <tr><th>Vigencia</th><td class="nuestro" data-de="Cabina SV">No vence</td><td data-de="Google Maps">Vence y se actualiza cada cierto tiempo</td></tr>
+      <tr><th>Guía sin internet</th><td class="nuestro" data-de="Cabina SV">Sí, en El Salvador</td><td data-de="Google Maps">Sí, dentro de la zona descargada</td></tr>
+      <tr><th>Tráfico en vivo</th><td class="nuestro" data-de="Cabina SV">Solo con internet, con datos de Mapbox</td><td data-de="Google Maps">Solo con internet</td></tr>
+      <tr><th>Cobertura sin internet</th><td class="nuestro" data-de="Cabina SV">Rutas en El Salvador y búsqueda en 6 países</td><td data-de="Google Maps">Las zonas que descargues, donde Google lo permite</td></tr>
       </tbody>
     </table></div>
     <p class="nota">Google Maps es una marca de Google LLC. Cabina SV no está afiliada a Google. Información de <a href="https://support.google.com/maps/answer/6291838?hl=es&co=GENIE.Platform%3DAndroid">la ayuda de Google Maps</a>, noviembre de 2026.</p>
@@ -212,17 +236,17 @@
     <h2>Así funciona</h2>
     <p class="intro">Todo en horizontal, pensado para el soporte del carro.</p>
     <div class="capturas">
-      <figure><div class="marco"><img src="capturas/01-inicio.jpg" alt="Pantalla de inicio con el mapa sin internet de El Salvador" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/01-inicio.jpg" alt="Pantalla de inicio con el mapa sin internet de El Salvador" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Inicio sin internet</b><span>Tu tablero con el mapa propio: hora, radio, música y velocidad.</span></figcaption></figure>
-      <figure><div class="marco"><img src="capturas/02-navegacion.jpg" alt="Navegación" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/02-navegacion.jpg" alt="Navegación" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Navegación</b><span>Guía por voz, tiempo de llegada y límite de velocidad.</span></figcaption></figure>
-      <figure><div class="marco"><img src="capturas/03-musica.jpg" alt="Música" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/03-musica.jpg" alt="Música" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Música</b><span>Por carpetas, artistas, álbumes y playlists.</span></figcaption></figure>
-      <figure><div class="marco"><img src="capturas/04-paises-sin-internet.jpg" alt="Países para buscar sin internet" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/04-paises-sin-internet.jpg" alt="Países para buscar sin internet" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Buscar sin internet</b><span>El Salvador incluido y países de Centroamérica para descargar.</span></figcaption></figure>
-      <figure><div class="marco"><img src="capturas/05-radio.jpg" alt="Radio" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/05-radio.jpg" alt="Radio" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Radio</b><span>Miles de emisoras por internet y tus favoritas.</span></figcaption></figure>
-      <figure><div class="marco"><img src="capturas/06-ajustes.jpg" alt="Ajustes" onerror="this.replaceWith('Captura próximamente')"></div>
+      <figure><div class="marco"><img loading="lazy" width="1600" height="725" src="capturas/06-ajustes.jpg" alt="Ajustes" onerror="this.replaceWith('Captura próximamente')"></div>
         <figcaption><b>Ajustes</b><span>Tema claro u oscuro, colores, gadgets y más.</span></figcaption></figure>
     </div>
   </section>
