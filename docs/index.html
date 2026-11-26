@@ -90,6 +90,11 @@
   .boton.principal { background: var(--acento); color: #0D1015; }
   .boton.secundario { border: 1px solid var(--borde); color: var(--texto); background: var(--tarjeta); }
   .pronto { font-size: 13px; color: var(--gris); margin-top: 10px; }
+  .pasos { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; counter-reset: paso; }
+  .pasos li { counter-increment: paso; display: flex; gap: 12px; align-items: flex-start; overflow-wrap: anywhere; }
+  .pasos li::before { content: counter(paso); flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--acento); color: #0D1015; font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+  #probar .boton { margin-top: 18px; }
+  @media (max-width: 420px) { .botones .boton { width: 100%; justify-content: center; } }
   .heroe img.portada { width: 100%; height: auto; border-radius: 22px; border: 1px solid var(--borde); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
 
   section { padding: 48px 0; }
@@ -155,6 +160,7 @@
       <a href="#funciones">Funciones</a>
       <a href="#ficha">Ficha técnica</a>
       <a href="#preguntas">Preguntas</a>
+      <a href="#probar">Probar</a>
     </nav>
   </div>
 </header>
@@ -167,8 +173,8 @@
       <p class="sub">Convierte tu teléfono Android en el tablero de tu carro. Calcula la ruta y te guía por voz <b style="color:var(--texto)">aunque no tengas datos</b>, con todo El Salvador en un solo archivo, y reúne tu música, la radio y tus llamadas en una pantalla.</p>
       <ul class="pilares"><li>Navegación</li><li>Sin internet</li><li>Música</li><li>Radio</li></ul>
       <div class="botones">
-        <a class="boton principal" href="#sin-internet">Ver qué hace sin internet</a>
-        <a class="boton secundario" href="#capturas">Ver la app</a>
+        <a class="boton principal" href="#probar">🧪 Quiero probarla</a>
+        <a class="boton secundario" href="#sin-internet">Ver qué hace sin internet</a>
       </div>
       <p class="pronto">Próximamente en Google Play · Gratis y sin anuncios · Hecho en El Salvador · App Android para manejar</p>
     </div>
@@ -182,16 +188,33 @@
     <div class="cifra"><b>0</b><span>anuncios y cuentas por crear</span></div>
   </div>
 
+  <section id="probar">
+    <div class="destacado">
+      <div>
+        <h2>Pruébala antes que nadie 🧪</h2>
+        <p class="sub" style="margin:0">Antes de publicarla, Google pide que <b style="color:var(--texto)">al menos 12 personas</b> la usen durante 14 días. Si tienes un teléfono Android, puedes ser una de ellas. Es gratis y no tienes que manejar con ella todo el tiempo.</p>
+        <a class="boton principal" href="https://forms.gle/kEDAeWxtiGSrh2bt9" target="_blank" rel="noopener">Registrarme como probador</a>
+        <p class="nota">Tu nombre y tu correo solo se usan para invitarte a la prueba, y se borran cuando la app se publique.</p>
+      </div>
+      <ol class="pasos">
+        <li><span><b>Anótate</b> en el formulario con el correo de Google que usas en Play Store.</span></li>
+        <li><span>Te llega una <b>invitación de Google Play</b>: tocas “Convertirme en tester” e instalas la app.</span></li>
+        <li><span>Déjala instalada <b>14 días seguidos</b> y ábrela de vez en cuando.</span></li>
+        <li><span>Cuéntanos qué te pareció desde <b>Ajustes &gt; Acerca de &gt; Dar mi opinión</b>.</span></li>
+      </ol>
+    </div>
+  </section>
+
   <section id="sin-internet">
     <h2>Se fue la señal, la ruta sigue</h2>
     <p class="intro">Cuando te quedas sin internet, la app lo avisa por voz y pasa sola al mapa y las rutas guardadas en tu teléfono.</p>
     <div class="grupos">
       <div class="grupo"><h3>🛣️ Calcula la ruta</h3>
-        <ul><li>En <b>tu teléfono</b>, sin datos móviles</li><li><b>Recalcula en el momento</b> si te desvías</li><li>Guía por <b>voz en español</b>, y baja la música al hablar</li></ul></div>
+        <ul><li>En <b>tu teléfono</b>, sin datos móviles</li><li><b>Recalcula en el momento</b> si te desvías</li><li>Guía por <b>voz en español</b>, y baja la música al hablar</li><li><b>Termina sola</b> al llegar a tu destino</li></ul></div>
       <div class="grupo"><h3>🗺️ Mapa propio</h3>
         <ul><li>Calles con <b>nombre</b> de todo El Salvador</li><li>De <b>día y de noche</b>, también en el inicio</li><li>La ruta que falta en color y <b>lo recorrido en gris</b></li></ul></div>
       <div class="grupo"><h3>🔎 Busca y dicta</h3>
-        <ul><li>Lugares, colonias y calles <b>sin conexión</b></li><li><b>Dictado por voz</b> sin internet en teléfonos compatibles</li><li>Descargas <b>una vez y no vence</b></li></ul></div>
+        <ul><li>Lugares, colonias y calles <b>sin conexión</b></li><li><b>Dictado por voz</b> sin internet en teléfonos compatibles</li><li>Descargas <b>una vez y no vence</b></li><li>Con internet, <b>primero los lugares de El Salvador</b></li></ul></div>
     </div>
   </section>
 
@@ -258,7 +281,7 @@
       <div class="grupo"><h3>🧩 Inicio personalizable</h3>
         <ul><li><b>Mueve, oculta e intercambia</b> los gadgets</li><li>Logo de tu carro, radio, minimapa, música y llamadas</li><li>Hora, velocidad y avisos de un vistazo</li></ul></div>
       <div class="grupo"><h3>🧭 Navegación</h3>
-        <ul><li><b>Guía por voz</b>, con y sin internet</li><li><b>Varias rutas</b> para elegir y <b>límite de velocidad</b> de la calle, con internet</li><li>Mapa de <b>día o de noche</b> según la hora</li></ul></div>
+        <ul><li><b>Guía por voz</b>, con y sin internet</li><li><b>Varias rutas</b> para elegir y <b>límite de velocidad</b> de la calle, con internet</li><li>Mapa de <b>día o de noche</b> según la hora, sin destellos</li><li>Sigue guiándote aunque <b>abras otra app</b>, con su aviso en la barra</li></ul></div>
       <div class="grupo"><h3>📍 Mis lugares</h3>
         <ul><li><b>Mantén presionado</b> el mapa para guardar</li><li>Casa, Trabajo o Favorito</li><li>Edítalos o bórralos cuando quieras</li></ul></div>
       <div class="grupo"><h3>🎵 Música local</h3>
@@ -266,13 +289,17 @@
       <div class="grupo"><h3>📻 Radio por internet</h3>
         <ul><li><b>Miles de emisoras</b> de <a href="https://www.radio-browser.info">radio-browser.info</a></li><li>Tus favoritas y la última que escuchaste</li><li><b>Desliza</b> para cambiar de emisora</li></ul></div>
       <div class="grupo"><h3>🔔 Notificaciones y llamadas</h3>
-        <ul><li>Panel que <b>se cierra solo</b></li><li>Llama a tus <b>favoritos</b> con un toque</li><li>Acceso a tus <b>llamadas recientes</b></li></ul></div>
+        <ul><li>Panel que <b>se cierra solo</b></li><li>Llama a tus <b>favoritos</b> con un toque</li><li>Los eliges en el selector de Android, <b>sin dar acceso a tu agenda</b></li><li>Acceso a tus <b>llamadas recientes</b></li></ul></div>
       <div class="grupo"><h3>🌗 Tema</h3>
         <ul><li><b>Claro, oscuro o automático</b></li><li>Cambia con la hora, igual que el mapa</li><li>Tu <b>color de acento</b></li></ul></div>
       <div class="grupo"><h3>🔵 Bluetooth del carro</h3>
         <ul><li><b>Se abre sola</b> al conectar tu carro</li><li>Tú eliges qué Bluetooth es el de tu carro</li></ul></div>
       <div class="grupo"><h3>👋 Tour de bienvenida</h3>
         <ul><li>Resalta <b>cada parte</b> del inicio</li><li>Puedes saltarlo</li><li>Y verlo otra vez desde <b>Ajustes</b></li></ul></div>
+      <div class="grupo"><h3>💬 Tu opinión cuenta</h3>
+        <ul><li><b>Dar mi opinión</b> desde Ajustes &gt; Acerca de</li><li>Estrellas, lo que más usas y un comentario</li><li>Se envía desde tu correo, tú lo revisas antes</li></ul></div>
+      <div class="grupo"><h3>❤️ Gratis de verdad</h3>
+        <ul><li><b>Sin anuncios</b> y sin cuentas</li><li>Apoyo voluntario con PayPal</li><li>Apoyar <b>no desbloquea nada</b>: todo está incluido</li></ul></div>
     </div>
   </section>
 
@@ -311,14 +338,16 @@
     <details><summary>¿El mapa sin internet es igual al de siempre?</summary>
       <p>Es más sencillo: muestra calles con su nombre, ciudades, pueblos y colonias. No trae parques, ríos, edificios ni negocios, pero la búsqueda sí encuentra lugares.</p></details>
     <details><summary>¿Dónde la descargo?</summary>
-      <p>Muy pronto en Google Play.</p></details>
+      <p>Muy pronto en Google Play. Mientras tanto, si tienes Android, <a href="https://forms.gle/kEDAeWxtiGSrh2bt9" target="_blank" rel="noopener">anótate como probador</a> y te llegará la invitación.</p></details>
+    <details><summary>¿Qué tengo que hacer como probador?</summary>
+      <p>Instalar la app con la invitación de Google Play, dejarla instalada 14 días seguidos sin salir de la prueba y usarla cuando puedas. Al final, cuéntanos qué te pareció. Configúrala siempre con el carro detenido.</p></details>
   </section>
 </main>
 
 <footer>
   <div class="contenedor">
     <span>© 2026 Rafael Aguilar · Hecho en El Salvador</span>
-    <span><a href="apoyar.html">❤ Apoyar el proyecto</a> · <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a> · Lugares y calles © OpenStreetMap</span>
+    <span><a href="https://forms.gle/kEDAeWxtiGSrh2bt9" target="_blank" rel="noopener">🧪 Probar la app</a> · <a href="apoyar.html">❤ Apoyar el proyecto</a> · <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a> · Lugares y calles © OpenStreetMap</span>
   </div>
 </footer>
 <div class="franja"></div>

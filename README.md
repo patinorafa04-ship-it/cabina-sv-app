@@ -5,6 +5,8 @@
 <p align="center">
   <b>Próximamente en Google Play</b>
   &nbsp;·&nbsp;
+  <a href="https://forms.gle/kEDAeWxtiGSrh2bt9">🧪 Quiero probarla</a>
+  &nbsp;·&nbsp;
   <a href="https://patinorafa04-ship-it.github.io/cabina-sv-app/">Página web</a>
   &nbsp;·&nbsp;
   <a href="https://patinorafa04-ship-it.github.io/cabina-sv-mapas/privacidad.html">Privacidad</a>
@@ -15,6 +17,17 @@
 **Tu carro, tu cabina.** Cabina SV convierte tu teléfono Android en el tablero de tu carro: navegación, música, radio, llamadas y notificaciones en una sola pantalla horizontal, con botones grandes y pensada para verse de un vistazo mientras manejas.
 
 Hecha en El Salvador 🇸🇻. Calcula la ruta y te guía por voz **sin internet** en todo el país, con un solo archivo de 12.6 MB que se descarga una vez y no vence. Además busca entre **312,833 lugares de 6 países** sin conexión.
+
+## 🧪 Pruébala antes que nadie
+
+Antes de publicarla, Google pide que al menos 12 personas la usen durante 14 días. Si tienes un teléfono Android, **[regístrate como probador](https://forms.gle/kEDAeWxtiGSrh2bt9)**:
+
+1. Anótate con el correo de Google que usas en Play Store.
+2. Te llega una invitación de Google Play: tocas "Convertirme en tester" e instalas la app.
+3. Déjala instalada 14 días seguidos y ábrela de vez en cuando.
+4. Cuéntanos qué te pareció desde **Ajustes > Acerca de > Dar mi opinión**.
+
+Tu nombre y tu correo solo se usan para invitarte a la prueba y se borran cuando la app se publique.
 
 ## Capturas
 
@@ -30,10 +43,14 @@ Hecha en El Salvador 🇸🇻. Calcula la ruta y te guía por voz **sin internet
 
 ### 🧭 Navegación
 - **Rutas sin internet en El Salvador**: la app calcula el camino en tu teléfono, te guía por voz y recalcula en el momento si te desvías.
+- Si se va la señal, **lo avisa por voz** y sigue con el mapa y las rutas del teléfono.
+- La guía **baja la música** cuando habla y **termina sola** al llegar.
+- Sigue guiándote aunque **abras otra app**, con su aviso en la barra de notificaciones.
 - **Mapa propio sin internet**: calles con su nombre, ciudades, pueblos y colonias, de día y de noche.
 - Con internet: **varias rutas** para elegir y **límite de velocidad** de la calle (se pone en rojo si te pasas).
-- Mapa de **día o de noche** según la hora.
+- Mapa de **día o de noche** según la hora, sin destellos al abrirlo.
 - **Búsqueda sin internet**: El Salvador incluido; Guatemala, Honduras, Nicaragua, Costa Rica y Panamá para descargar.
+- **Búsqueda con internet** que muestra primero los lugares de El Salvador.
 - **Dictado por voz** del destino, también sin internet en teléfonos compatibles.
 - **Mis lugares**: mantén presionado el mapa para guardar Casa, Trabajo o favoritos.
 - Sin internet, la ruta se puede abrir en Organic Maps.
@@ -47,10 +64,14 @@ Hecha en El Salvador 🇸🇻. Calcula la ruta y te guía por voz **sin internet
 ### 📱 Al volante
 - **Inicio personalizable**: mueve, oculta e intercambia gadgets.
 - **Notificaciones** en un panel que se cierra solo.
-- **Llamadas** a tus contactos favoritos con un toque.
+- **Llamadas** a tus favoritos con un toque; los eliges en el selector de Android, sin dar acceso a tu agenda.
 - Se **abre sola** al conectar el Bluetooth de tu carro.
 - Tema **claro, oscuro o automático** y el color que prefieras.
-- **Tour de bienvenida** que explica cada parte.
+- **Tour de bienvenida** que explica cada parte, y descarga de las rutas sin internet desde la primera configuración.
+
+### 💬 Comunidad
+- **Dar mi opinión** desde Ajustes > Acerca de: estrellas, lo que más usas y un comentario.
+- **Gratis y sin anuncios.** Apoyo voluntario con PayPal que no desbloquea nada.
 
 ## Ficha técnica
 
@@ -94,7 +115,7 @@ El mapa lo da Mapbox. Cada persona usa su propio token gratuito, así nadie gast
 Sí. Descarga una vez "Rutas sin internet" en Ajustes > Navegación y la app mostrará su mapa, calculará la ruta y te guiará por voz sin datos, en El Salvador. También puedes buscar lugares y escuchar tu música. Ese mapa es más sencillo: no trae parques, ríos, edificios ni negocios.
 
 **¿Dónde la descargo?**
-Pronto estará en Google Play. Este repositorio no publica instaladores.
+Pronto estará en Google Play. Mientras tanto, si tienes Android, [anótate como probador](https://forms.gle/kEDAeWxtiGSrh2bt9) y te llegará la invitación. Este repositorio no publica instaladores.
 
 ---
 
